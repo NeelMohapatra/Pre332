@@ -11,10 +11,36 @@ public class BinarySearchStringTree {
 	private StringTreeNode add(String data, StringTreeNode root) {
 		if (root == null) {
 			root = new StringTreeNode(data);
-		} else if (root.data.compareTo(data) < 0) {
+		} else if (root.data.compareTo(data) > 0) {
 			root.left = add(data, root.left);
 		} else {
 			root.right = add(data, root.right);
+		}
+		return root;
+	}
+	
+	public void remove(String object) {
+		this.root = remove(this.root, object);
+	}
+	
+	public StringTreeNode remove(StringTreeNode root, String object) {
+		if (root == null) 
+			return null;
+		if (root.data.equals(object)) {
+			if (root.right == null) {
+				 root = root.left;
+			} else {
+				StringTreeNode curr = root.right;
+				while (curr.left != null) {
+					curr = curr.left;
+				}
+				root.data = curr.data;
+				root.right = remove(root.right, curr.data);
+			}
+		} else if (root.data.compareTo(object) > 0) {
+			root.left = remove(root.left, object);
+		} else {
+			root.right = remove(root.right, object);
 		}
 		return root;
 	}

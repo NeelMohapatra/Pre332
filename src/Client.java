@@ -18,5 +18,14 @@ public class Client {
 		l.remove(3);
 		l.remove(7);
 		System.out.println(l);
+		
+		BinarySearchStringTree b = new BinarySearchStringTree();
+		for (int i = 0; i < 10; i++) {
+			b.add(i + "");
+		}
+		b.remove("3");
+		System.out.println(b.inOrderTraversal());
+		System.out.println(b.preOrderTraversal());
+		System.out.println(b.postOrderTraversal());
 	}
 }
