@@ -20,9 +20,9 @@ public class Client {
 		System.out.println(l);
 		
 		BinarySearchStringTree b = new BinarySearchStringTree();
-		for (int i = 0; i < 10; i++) {
-			b.add(i + "");
-		}
+		b.add(15 + "");
+		b.add(12 + "");
+		b.add(18 + "");
 		b.remove("3");
 		System.out.println(b.inOrderTraversal());
 		System.out.println(b.preOrderTraversal());
